@@ -7,10 +7,7 @@ package dataStructures.List;
 
 import java.io.IOException;
 
-/**
- *
- * @author emilbert
- */
+
 public class Test {
 
     /**
