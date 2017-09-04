@@ -18,8 +18,8 @@ public class CLI {
     
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));  
     
-    LinkedList<Integer> linkedList = new LinkedList<>();
-    ArrayList<Integer> arrayList = new ArrayList<>();
+    LinkedList linkedList = new LinkedList();
+    ArrayList arrayList = new ArrayList();
     
     public void start() throws IOException{   
         

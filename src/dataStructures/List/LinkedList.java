@@ -14,7 +14,7 @@ import java.util.ListIterator;
  *
  * @author emilbert
  */
-public class LinkedList<T> implements List<T>{
+public class LinkedList{
     
     int costo;
 
@@ -23,7 +23,7 @@ public class LinkedList<T> implements List<T>{
     }    
     
     int size;    
-    Node<T> head;
+    Node head;
 
     public LinkedList() {
         
@@ -33,95 +33,44 @@ public class LinkedList<T> implements List<T>{
         
     }
 
-    @Override
+
     public int size() {
         return size;
     }
 
-    @Override
+
     public boolean isEmpty() {
         return size==0;
     }
+   
 
-    @Override
-    public boolean contains(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public Iterator<T> iterator() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object[] toArray() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public <T> T[] toArray(T[] ts) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean add(T t) {
-        
-        if(t==null) return false;
-        
+    public boolean add(int t) {
+                
         add(size, t);        
         return true;
         
     }
+    
 
-    @Override
-    public boolean remove(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> clctn) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends T> clctn) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean addAll(int i, Collection<? extends T> clctn) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> clctn) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> clctn) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void clear() {
         head=null;
         size=0;
     }
 
-    @Override
-    public T get(int pos) {
+    
+    public int get(int pos) {
         
         return getNode(pos).getItem();
         
     }
     
-    public Node<T> getNode(int pos){        
+    public Node getNode(int pos){        
         
         if(pos < 0 || pos >= size())
             throw new IndexOutOfBoundsException();
         
-        Node<T> temp= head;           
+        Node temp= head;           
                 
         for (int j = 0; j < pos; j++){
             temp=temp.getNext(); 
@@ -133,18 +82,14 @@ public class LinkedList<T> implements List<T>{
         
     }
 
-    @Override
-    public T set(int i, T e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
-    @Override
-    public void add(int pos, T item) {
+    public void add(int pos, int item) {
         
         if(pos < 0 || pos > size())
             throw new IndexOutOfBoundsException();
         
-        Node<T> newNode = new Node<T>(item);
+        Node newNode = new Node(item);
 
         if(this.isEmpty()){
             head = newNode;  
@@ -158,8 +103,8 @@ public class LinkedList<T> implements List<T>{
             head=newNode;
             
         }else{            
-            Node<T> prev= getNode(pos-1);
-            Node<T> next= prev.getNext();   
+            Node prev= getNode(pos-1);
+            Node next= prev.getNext();   
             costo++;
             prev.setNext(newNode);
             newNode.setNext(next);
@@ -170,23 +115,22 @@ public class LinkedList<T> implements List<T>{
         
     }
 
-    @Override
-    public T remove(int pos) {
+    public int remove(int pos) {
         
         if(pos < 0 || pos >= size())
             throw new IndexOutOfBoundsException();
         
-        Node<T> temp;
+        Node temp;
         
         if(pos==0){
             temp=head;
             head=head.getNext();
         }else{
             
-            Node<T> prev= getNode(pos-1);
+            Node prev= getNode(pos-1);
             temp= prev.getNext();
             costo++;
-            Node<T> next= temp.getNext();        
+            Node next= temp.getNext();        
             costo++;
             prev.setNext(next);           
         }        
@@ -196,18 +140,15 @@ public class LinkedList<T> implements List<T>{
         return temp.getItem();
     }
 
-    @Override
-    public int indexOf(Object o) {
+    public int indexOf(int o) {
         
-        Node<T> temp= head;
-        
-        T t = (T) o;
+        Node temp= head;
         
         for (int i = 0; i < size; i++) {
             
             costo++;
             
-            if((temp.getItem().equals(t)))
+            if((temp.getItem()==o))
                 return i;
             
             
@@ -217,25 +158,7 @@ public class LinkedList<T> implements List<T>{
         return -1;
     }
 
-    @Override
-    public int lastIndexOf(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ListIterator<T> listIterator() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ListIterator<T> listIterator(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<T> subList(int i, int i1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
 
 }

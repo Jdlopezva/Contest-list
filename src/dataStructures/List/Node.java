@@ -9,30 +9,30 @@ package dataStructures.List;
  *
  * @author emilbert
  */
-public class Node<T> {
+public class Node {
     
-    private T item;    
-    private Node<T> next;
+    private int item;    
+    private Node next;
 
-    public Node(T item) {
+    public Node(int item) {
         this.item = item;
         next=null;
     }    
     
 
-    public T getItem() {
+    public int getItem() {
         return item;
     }
 
-    public void setItem(T item) {
+    public void setItem(int item) {
         this.item = item;
     }
 
-    public Node<T> getNext() {
+    public Node getNext() {
         return next;
     }
 
-    public void setNext(Node<T> next) {
+    public void setNext(Node next) {
         this.next = next;
     }        
     
