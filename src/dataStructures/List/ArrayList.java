@@ -8,10 +8,7 @@ package dataStructures.List;
 import java.util.List;
 import java.util.ListIterator;
 
-/**
- *
- * @author emilbert
- */
+
 public class ArrayList{
     
     private int size = 0;
